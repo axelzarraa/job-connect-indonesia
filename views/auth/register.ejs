@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Job Connect</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-card">
+            <h1>Buat Akun 🚀</h1>
+            <p>Daftar sebagai HRD atau Job Seeker.</p>
+
+            <form action="/register" method="POST">
+                <label>Nama</label>
+                <input
+                    type="text"
+                    name="name"
+                    class="form-control-custom"
+                    placeholder="Nama lengkap"
+                    required>
+
+                <br>
+
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control-custom"
+                    placeholder="Email aktif"
+                    required>
+
+                <br>
+
+                <label>Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control-custom"
+                    placeholder="Minimal 6 karakter"
+                    required>
+
+                <br>
+
+                <label>Role</label>
+                <select name="role" class="form-control-custom" required>
+                    <option value="jobseeker">Job Seeker</option>
+                    <option value="hrd">HRD</option>
+                </select>
+
+                <br><br>
+
+                <button type="submit" class="btn-blue" style="width: 100%;">
+                    Register
+                </button>
+            </form>
+
+            <p class="auth-link">
+                Sudah punya akun?
+                <a href="/login">Login sekarang</a>
+            </p>
+
+            <p class="auth-link">
+                <a href="/">Kembali ke Home</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

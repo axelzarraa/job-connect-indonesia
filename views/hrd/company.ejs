@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Perusahaan</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="navbar-custom">
+        <a href="/hrd/dashboard">Dashboard</a>
+        <a href="/hrd/jobs">Kelola Lowongan</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="container-box" style="max-width: 700px;">
+        <h1>Data Perusahaan</h1>
+        <p>Lengkapi profil perusahaan sebelum membuat lowongan.</p>
+
+        <form action="/hrd/company" method="POST">
+
+            <label>Nama Perusahaan</label>
+            <input
+                type="text"
+                name="company_name"
+                class="form-control-custom"
+                required>
+
+            <br>
+
+            <label>Alamat</label>
+            <textarea
+                name="address"
+                rows="4"
+                class="form-control-custom"
+                required></textarea>
+
+            <br>
+
+            <label>Deskripsi Perusahaan</label>
+            <textarea
+                name="description"
+                rows="5"
+                class="form-control-custom"
+                required></textarea>
+
+            <br><br>
+
+            <button type="submit" class="btn-blue">
+                Simpan Data Perusahaan
+            </button>
+
+        </form>
+    </div>
+</body>
+</html>

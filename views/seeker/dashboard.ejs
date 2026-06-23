@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Job Seeker</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="navbar-custom">
+        <a href="/seeker/dashboard">💼 Job Connect</a>
+        <a href="/seeker/portfolio">Portfolio Saya</a>
+        <a href="/logout">Logout</a>
+        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+    </div>
+
+    <div class="container-box">
+        <div class="page-header">
+            <h1>Halo, <%= user.name %> 👋</h1>
+            <p>Temukan peluang kerja terbaik dan kelola portfolio profesionalmu.</p>
+
+            <div class="quick-actions">
+                <a href="/seeker/portfolio" class="btn-green">Kelola Portfolio</a>
+                <a href="/logout" class="btn-red">Logout</a>
+            </div>
+        </div>
+
+        <% if (message) { %>
+    <div class="alert-message <%= message.type === 'success' ? 'alert-success' : 'alert-warning' %>">
+        <%= message.text %>
+    </div>
+<% } %>
+
+        <div class="dashboard-card-grid">
+            <div class="mini-card">
+                <h3>📄 Portfolio</h3>
+                <p>Lengkapi skill, pendidikan, pengalaman dan CV kamu.</p>
+            </div>
+
+            <div class="mini-card">
+                <h3>🔍 Lowongan</h3>
+                <p>Lihat lowongan terbaru dari perusahaan yang tersedia.</p>
+            </div>
+
+            <div class="mini-card">
+                <h3>🚀 Apply</h3>
+                <p>Lamar pekerjaan dengan mudah melalui satu klik.</p>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Lowongan Terbaru</h2>
+        </div>
+
+        <% if (jobs.length === 0) { %>
+            <div class="alert-empty">
+    <h3>🔍 Belum Ada Lowongan</h3>
+    <p>Lowongan dari perusahaan akan tampil di halaman ini.</p>
+</div>
+        <% } else { %>
+            <% jobs.forEach(job => { %>
+                <div class="card-job">
+                    <h3><%= job.title %></h3>
+
+                    <div class="job-meta">
+                        <span>🏢 <%= job.company_name %></span>
+                        <span>📅 Deadline: <%= new Date(job.deadline).toLocaleDateString('id-ID') %></span>
+                    </div>
+
+                    <p><strong>Deskripsi:</strong><br><%= job.description %></p>
+                    <p><strong>Syarat:</strong><br><%= job.requirement %></p>
+
+                    <a href="/seeker/apply/<%= job.id %>" class="btn-blue">
+                        Lamar Pekerjaan
+                    </a>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

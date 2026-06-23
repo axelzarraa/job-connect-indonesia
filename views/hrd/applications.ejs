@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Pelamar</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="navbar-custom">
+        <a href="/hrd/dashboard">💼 Job Connect</a>
+        <a href="/hrd/jobs">Kelola Lowongan</a>
+        <a href="/hrd/applications">Pelamar</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="container-box">
+        <div class="page-header">
+            <h1>Data Pelamar</h1>
+            <p>Kelola kandidat yang sudah melamar ke lowongan perusahaan.</p>
+        </div>
+
+        <% if (applications.length === 0) { %>
+            <div class="alert-empty">
+    <h3>👥 Belum Ada Pelamar</h3>
+    <p>Pelamar akan muncul setelah job seeker mengirim lamaran.</p>
+</div>
+        <% } else { %>
+            <table>
+                <tr>
+                    <th>Nama Pelamar</th>
+                    <th>Email</th>
+                    <th>Lowongan</th>
+                    <th>Status</th>
+                    <th>Tanggal Lamar</th>
+                    <th>Aksi</th>
+                </tr>
+
+                <% applications.forEach(app => { %>
+                    <tr>
+                        <td><strong><%= app.name %></strong></td>
+                        <td><%= app.email %></td>
+                        <td><%= app.title %></td>
+                        <td>
+                            <% if (app.status === "pending") { %>
+                                <span class="badge badge-yellow">Pending</span>
+                            <% } else if (app.status === "review") { %>
+                                <span class="badge badge-blue">Review</span>
+                            <% } else if (app.status === "accepted") { %>
+                                <span class="badge badge-green">Accepted</span>
+                            <% } else { %>
+                                <span class="badge badge-red">Rejected</span>
+                            <% } %>
+                        </td>
+                        <td><%= new Date(app.created_at).toLocaleDateString('id-ID') %></td>
+                        <td>
+                            <a href="/hrd/applications/status/<%= app.id %>/review" class="btn-small-blue">Review</a>
+                            <a href="/hrd/applications/status/<%= app.id %>/accepted" class="btn-small-green">Accept</a>
+                            <a href="/hrd/applications/status/<%= app.id %>/rejected" class="btn-small-red" onclick="return confirm('Yakin ingin menolak pelamar ini?')">Reject</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </table>
+        <% } %>
+    </div>
+</body>
+</html>

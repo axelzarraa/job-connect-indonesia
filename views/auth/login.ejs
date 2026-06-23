@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Job Connect</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-card">
+            <h1>Welcome Back 👋</h1>
+            <p>Masuk untuk melanjutkan ke Job Connect Indonesia.</p>
+
+            <form action="/login" method="POST">
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control-custom"
+                    placeholder="Masukkan email"
+                    required>
+
+                <br>
+
+                <label>Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control-custom"
+                    placeholder="Masukkan password"
+                    required>
+
+                <br><br>
+
+                <button type="submit" class="btn-blue" style="width: 100%;">
+                    Login
+                </button>
+            </form>
+
+            <p class="auth-link">
+                Belum punya akun?
+                <a href="/register">Register sekarang</a>
+            </p>
+
+            <p class="auth-link">
+                <a href="/">Kembali ke Home</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

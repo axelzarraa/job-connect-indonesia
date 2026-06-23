@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kelola Lowongan</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="navbar-custom">
+        <a href="/hrd/dashboard">💼 Job Connect</a>
+        <a href="/hrd/jobs">Kelola Lowongan</a>
+        <a href="/hrd/applications">Pelamar</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="container-box">
+        <div class="page-header">
+            <h1>Kelola Lowongan</h1>
+            <p>Buat dan pantau lowongan pekerjaan yang sedang dibuka perusahaan.</p>
+
+            <div class="quick-actions">
+                <a href="/hrd/jobs/create" class="btn-green">+ Tambah Lowongan</a>
+                <a href="/hrd/dashboard" class="btn-blue">Kembali Dashboard</a>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Daftar Lowongan</h2>
+        </div>
+
+        <% if (jobs.length === 0) { %>
+            <div class="alert-empty">
+    <h3>📭 Belum Ada Lowongan</h3>
+    <p>Mulai dengan membuat lowongan pekerjaan pertama untuk perusahaan Anda.</p>
+</div>
+        <% } else { %>
+            <% jobs.forEach(job => { %>
+                <div class="card-job">
+                    <h3><%= job.title %></h3>
+
+                    <div class="job-meta">
+                        <span>📅 Deadline: <%= new Date(job.deadline).toLocaleDateString('id-ID') %></span>
+                        <span>🏢 Aktif</span>
+                    </div>
+
+                    <p>
+                        <strong>Deskripsi:</strong><br>
+                        <%= job.description %>
+                    </p>
+
+                    <p>
+                        <strong>Requirement:</strong><br>
+                        <%= job.requirement %>
+                    </p>
+
+                    <a href="/hrd/applications" class="btn-blue">Lihat Pelamar</a>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+</body>
+</html>

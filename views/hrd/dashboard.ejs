@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard HRD</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="navbar-custom">
+        <a href="/hrd/dashboard">💼 Job Connect</a>
+        <a href="/hrd/jobs">Kelola Lowongan</a>
+        <a href="/hrd/applications">Pelamar</a>
+        <a href="/logout">Logout</a>
+        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+    </div>
+
+    <div class="container-box">
+        <div class="page-header">
+            <h1>Dashboard HRD</h1>
+            <p>Selamat datang, <strong><%= user.name %></strong>. Kelola lowongan dan kandidat dengan mudah.</p>
+
+            <div class="quick-actions">
+                <a href="/hrd/jobs" class="btn-blue">Kelola Lowongan</a>
+                <a href="/hrd/applications" class="btn-green">Lihat Pelamar</a>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="stat-card">
+                <h3>Total Lowongan</h3>
+                <p><%= totalJobs %></p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Total Pelamar</h3>
+                <p><%= totalApplications %></p>
+            </div>
+        </div>
+
+        <div class="dashboard-card-grid" style="margin-top: 28px;">
+            <div class="mini-card">
+                <h3>📌 Posting Lowongan</h3>
+                <p>Buat lowongan baru sesuai kebutuhan perusahaan.</p>
+                <a href="/hrd/jobs/create" class="btn-blue">Tambah Lowongan</a>
+            </div>
+
+            <div class="mini-card">
+                <h3>👥 Kelola Pelamar</h3>
+                <p>Lihat kandidat yang masuk dan proses status lamaran.</p>
+                <a href="/hrd/applications" class="btn-green">Lihat Pelamar</a>
+            </div>
+
+            <div class="mini-card">
+                <h3>🏢 Profil Perusahaan</h3>
+                <p>Pastikan data perusahaan sudah lengkap dan profesional.</p>
+                <a href="/hrd/company" class="btn-blue">Data Perusahaan</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

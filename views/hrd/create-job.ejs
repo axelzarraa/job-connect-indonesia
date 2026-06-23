@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tambah Lowongan</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="navbar-custom">
+        <a href="/hrd/dashboard">💼 Job Connect</a>
+        <a href="/hrd/jobs">Kelola Lowongan</a>
+        <a href="/hrd/applications">Pelamar</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="container-box" style="max-width: 760px;">
+        <div class="page-header">
+            <h1>Tambah Lowongan</h1>
+            <p>Lengkapi informasi lowongan agar kandidat memahami posisi yang dibuka.</p>
+        </div>
+
+        <form action="/hrd/jobs/create" method="POST">
+
+            <label>Judul Lowongan</label>
+            <input
+                type="text"
+                name="title"
+                class="form-control-custom"
+                placeholder="Contoh: Frontend Developer"
+                required>
+
+            <br>
+
+            <label>Deskripsi Pekerjaan</label>
+            <textarea
+                name="description"
+                rows="5"
+                class="form-control-custom"
+                placeholder="Jelaskan tanggung jawab pekerjaan..."
+                required></textarea>
+
+            <br>
+
+            <label>Requirement / Syarat</label>
+            <textarea
+                name="requirement"
+                rows="5"
+                class="form-control-custom"
+                placeholder="Contoh: HTML, CSS, JavaScript, React..."
+                required></textarea>
+
+            <br>
+
+            <label>Deadline Lamaran</label>
+            <input
+                type="date"
+                name="deadline"
+                class="form-control-custom"
+                required>
+
+            <br><br>
+
+            <button type="submit" class="btn-blue">Simpan Lowongan</button>
+            <a href="/hrd/jobs" class="btn-red">Batal</a>
+
+        </form>
+    </div>
+</body>
+</html>

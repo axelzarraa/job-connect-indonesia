@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio Job Seeker</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="navbar-custom">
+        <a href="/seeker/dashboard">💼 Job Connect</a>
+        <a href="/seeker/portfolio">Portfolio Saya</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="container-box" style="max-width: 760px;">
+        <div class="page-header">
+            <h1>Portfolio Saya</h1>
+            <p>Lengkapi profil profesionalmu agar HRD lebih mudah menilai lamaran.</p>
+        </div>
+
+        <form action="/seeker/portfolio" method="POST" enctype="multipart/form-data">
+
+            <label>Skill</label>
+            <textarea
+                name="skill"
+                rows="4"
+                class="form-control-custom"
+                placeholder="Contoh: HTML, CSS, JavaScript, React"
+                required><%= portfolio ? portfolio.skill : "" %></textarea>
+
+            <br>
+
+            <label>Education</label>
+            <textarea
+                name="education"
+                rows="4"
+                class="form-control-custom"
+                placeholder="Contoh: SMK RPL / S1 Informatika"
+                required><%= portfolio ? portfolio.education : "" %></textarea>
+
+            <br>
+
+            <label>Experience</label>
+            <textarea
+                name="experience"
+                rows="4"
+                class="form-control-custom"
+                placeholder="Contoh: Pernah membuat website company profile"
+                required><%= portfolio ? portfolio.experience : "" %></textarea>
+
+            <br>
+
+            <label>Upload CV</label>
+            <input type="file" name="cv" class="form-control-custom">
+
+            <br><br>
+
+            <% if (portfolio && portfolio.cv) { %>
+                <div class="alert-empty">
+                    CV saat ini:
+                    <a href="/uploads/<%= portfolio.cv %>" target="_blank">
+                        Lihat CV
+                    </a>
+                </div>
+                <br>
+            <% } %>
+
+            <button type="submit" class="btn-blue">Simpan Portfolio</button>
+            <a href="/seeker/dashboard" class="btn-red">Kembali</a>
+
+        </form>
+    </div>
+</body>
+</html>
