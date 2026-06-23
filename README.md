@@ -1,5 +1,16 @@
 # Job Connect Indonesia
 
+## Preview
+
+### Home Page
+![Home Page](screenshots/home-page.png)
+
+### HRD Dashboard
+![HRD Dashboard](screenshots/hrd-dashboard.png)
+
+### Job Seeker Dashboard
+![Job Seeker Dashboard](screenshots/jobseeker-dashboard.png)
+
 Job Connect Indonesia adalah aplikasi web rekrutmen sederhana yang saya buat untuk mempelajari alur proses recruitment antara perusahaan dan pencari kerja.
 
 Pada project ini terdapat dua role utama, yaitu HRD dan Job Seeker. HRD dapat membuat lowongan pekerjaan serta mengelola pelamar yang masuk, sedangkan Job Seeker dapat membuat portfolio, mengunggah CV, melihat lowongan yang tersedia, dan mengirim lamaran pekerjaan.
