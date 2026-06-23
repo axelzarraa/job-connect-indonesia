@@ -75,4 +75,4 @@ Project ini dibuat sebagai latihan pengembangan aplikasi web berbasis Node.js da
 
 ## Author
 
-Bes
+Axel Zarra
