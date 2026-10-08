@@ -1,59 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard HRD</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HR Dashboard - Job Connect</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="navbar-custom">
-        <a href="/hrd/dashboard">💼 Job Connect</a>
-        <a href="/hrd/jobs">Kelola Lowongan</a>
-        <a href="/hrd/applications">Pelamar</a>
-        <a href="/logout">Logout</a>
+        <a href="/hrd/dashboard">
+            <span class="lp-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+            </span>
+            Job Connect
+        </a>
+        <a href="/hrd/jobs">Jobs</a>
+        <a href="/hrd/applications">Applicants</a>
+        <a href="/logout">Log out</a>
         <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
     </div>
 
     <div class="container-box">
         <div class="page-header">
-            <h1>Dashboard HRD</h1>
-            <p>Selamat datang, <strong><%= user.name %></strong>. Kelola lowongan dan kandidat dengan mudah.</p>
+            <h1>Hey, <%= user.name %></h1>
+            <p>Here's what's happening with your hiring today.</p>
 
             <div class="quick-actions">
-                <a href="/hrd/jobs" class="btn-blue">Kelola Lowongan</a>
-                <a href="/hrd/applications" class="btn-green">Lihat Pelamar</a>
+                <a href="/hrd/jobs/create" class="btn-green">Post a job</a>
+                <a href="/hrd/applications" class="btn-red">View applicants</a>
             </div>
         </div>
 
         <div class="dashboard-grid">
             <div class="stat-card">
-                <h3>Total Lowongan</h3>
+                <h3>Open jobs</h3>
                 <p><%= totalJobs %></p>
             </div>
 
             <div class="stat-card">
-                <h3>Total Pelamar</h3>
+                <h3>Applicants</h3>
                 <p><%= totalApplications %></p>
             </div>
         </div>
 
-        <div class="dashboard-card-grid" style="margin-top: 28px;">
+        <div class="dashboard-card-grid">
             <div class="mini-card">
-                <h3>📌 Posting Lowongan</h3>
-                <p>Buat lowongan baru sesuai kebutuhan perusahaan.</p>
-                <a href="/hrd/jobs/create" class="btn-blue">Tambah Lowongan</a>
+                <span class="lp-ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </span>
+                <h3>Post a job</h3>
+                <p>Create a new opening for your team.</p>
+                <a href="/hrd/jobs/create" class="btn-blue">Add job</a>
             </div>
 
             <div class="mini-card">
-                <h3>👥 Kelola Pelamar</h3>
-                <p>Lihat kandidat yang masuk dan proses status lamaran.</p>
-                <a href="/hrd/applications" class="btn-green">Lihat Pelamar</a>
+                <span class="lp-ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg>
+                </span>
+                <h3>Review applicants</h3>
+                <p>See who applied and update their status.</p>
+                <a href="/hrd/applications" class="btn-blue">View applicants</a>
             </div>
 
             <div class="mini-card">
-                <h3>🏢 Profil Perusahaan</h3>
-                <p>Pastikan data perusahaan sudah lengkap dan profesional.</p>
-                <a href="/hrd/company" class="btn-blue">Data Perusahaan</a>
+                <span class="lp-ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+                </span>
+                <h3>Company profile</h3>
+                <p>Keep your company info complete so candidates trust you.</p>
+                <a href="/hrd/company" class="btn-blue">Edit profile</a>
             </div>
         </div>
     </div>

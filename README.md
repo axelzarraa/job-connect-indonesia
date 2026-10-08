@@ -1,78 +1,81 @@
 # Job Connect Indonesia
 
+A hiring app where HR posts jobs and job seekers actually get to apply without the headache. Built with Node.js, Express, and MySQL.
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
+![EJS](https://img.shields.io/badge/EJS-B4CA65?style=flat&logo=ejs&logoColor=black)
+
 ## Preview
 
-### Home Page
-![Home Page](screenshots/home-page.png)
+**Landing page**
 
-### HRD Dashboard
+![Home](screenshots/home-page.png)
+
+**Login**
+
+![Login](screenshots/login-page.png)
+
+**HR dashboard**
+
 ![HRD Dashboard](screenshots/hrd-dashboard.png)
 
-### Job Seeker Dashboard
+**Job seeker dashboard**
+
 ![Job Seeker Dashboard](screenshots/jobseeker-dashboard.png)
 
-Job Connect Indonesia adalah aplikasi web rekrutmen sederhana yang saya buat untuk mempelajari alur proses recruitment antara perusahaan dan pencari kerja.
+## How it works
 
-Pada project ini terdapat dua role utama, yaitu HRD dan Job Seeker. HRD dapat membuat lowongan pekerjaan serta mengelola pelamar yang masuk, sedangkan Job Seeker dapat membuat portfolio, mengunggah CV, melihat lowongan yang tersedia, dan mengirim lamaran pekerjaan.
+**Job seekers**
+- Sign up, fill in your portfolio, upload your CV
+- Browse openings and apply in one click (no double applications, we got you)
+- Track your status: `pending`, `review`, `accepted`, `rejected`
 
-## Features
+**HR**
+- Set up your company profile
+- Post jobs
+- See who applied and update their status
 
-### HRD
+## Highlights
 
-* Login dan Register
-* Mengelola data perusahaan
-* Membuat lowongan pekerjaan
-* Melihat daftar pelamar
-* Mengubah status lamaran (Review, Accepted, Rejected)
+- Role-based access, so HR and job seekers only see their own side
+- Landing page with scroll animations and micro-interactions
+- Dark mode
+- CV upload with Multer
 
-### Job Seeker
+## Tech stack
 
-* Login dan Register
-* Melihat daftar lowongan
-* Mengirim lamaran pekerjaan
-* Upload CV
-* Mengelola portfolio
-* Mencegah pengiriman lamaran ganda pada lowongan yang sama
+Node.js, Express, MySQL, EJS, plain CSS (no framework), Multer, session auth.
 
-## Tech Stack
+## Run it locally
 
-* Node.js
-* Express.js
-* MySQL
-* EJS
-* CSS3
-* Multer
-
-## Installation
-
-Clone repository:
+You need Node.js and XAMPP (for MySQL).
 
 ```bash
-git clone https://github.com/username/job-connect-indonesia.git
-```
-
-Install dependencies:
-
-```bash
+git clone https://github.com/axelzarraa/job-connect-indonesia.git
+cd job-connect-indonesia
 npm install
 ```
 
-Jalankan aplikasi:
+1. Start **MySQL** in XAMPP
+2. Create the database and tables in phpMyAdmin (`users`, `companies`, `jobs`, `applications`, `portfolios`)
+3. Update your DB credentials in `config/db.js`
+4. Make sure the `uploads/` folder exists
+5. Run it:
 
 ```bash
 node app.js
 ```
 
-Buka browser:
+Open `http://localhost:3000` and you're in.
 
-```text
-http://localhost:3000
-```
+**Testing both roles?** Sessions are shared across tabs. Log in as HR in a normal window and as a job seeker in Incognito so one doesn't kick out the other.
 
-## Project Purpose
+## Why I built this
 
-Project ini dibuat sebagai latihan pengembangan aplikasi web berbasis Node.js dan MySQL sekaligus sebagai project portfolio untuk menunjukkan implementasi authentication, database relationship, file upload, dan recruitment workflow.
+To practice full stack basics for real: auth, role-based access, table relations, file uploads, and a hiring flow from job post to final decision.
 
 ## Author
 
-Bes
+**Axel Zarra** ([@axelzarraa](https://github.com/axelzarraa))

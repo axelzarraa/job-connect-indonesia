@@ -29,24 +29,62 @@ function isSeeker(req, res, next) {
 }
 
 router.get("/dashboard", isSeeker, (req, res) => {
-    const sql = `
+    const userId = req.session.user.id;
+
+    const jobSql = `
         SELECT jobs.*, companies.company_name
         FROM jobs
         JOIN companies ON jobs.company_id = companies.id
         ORDER BY jobs.id DESC
     `;
 
-    db.query(sql, (err, jobs) => {
+    const applicationSql = `
+        SELECT 
+            applications.id,
+            applications.status,
+            applications.created_at,
+            jobs.title,
+            companies.company_name,
+            users.name AS hrd_name,
+            users.email AS hrd_email
+        FROM applications
+        JOIN jobs ON applications.job_id = jobs.id
+        JOIN companies ON jobs.company_id = companies.id
+        JOIN users ON companies.user_id = users.id
+        WHERE applications.user_id = ?
+        ORDER BY applications.id DESC
+    `;
+
+    const statsSql = `
+        SELECT
+            COUNT(*) AS total_applications,
+            SUM(status = 'review') AS total_review,
+            SUM(status = 'accepted') AS total_accepted
+        FROM applications
+        WHERE user_id = ?
+    `;
+
+    db.query(jobSql, (err, jobs) => {
         if (err) throw err;
 
-        const message = req.session.message;
-req.session.message = null;
+        db.query(applicationSql, [userId], (err, applications) => {
+            if (err) throw err;
 
-res.render("seeker/dashboard", {
-    user: req.session.user,
-    jobs,
-    message
-});
+            db.query(statsSql, [userId], (err, statsResult) => {
+                if (err) throw err;
+
+                const message = req.session.message;
+                req.session.message = null;
+
+                res.render("seeker/dashboard", {
+                    user: req.session.user,
+                    jobs,
+                    applications,
+                    stats: statsResult[0],
+                    message
+                });
+            });
+        });
     });
 });
 
@@ -64,11 +102,11 @@ router.get("/apply/:id", isSeeker, (req, res) => {
 
         if (results.length > 0) {
             req.session.message = {
-    type: "warning",
-    text: "Anda sudah melamar pekerjaan ini."
-};
+                type: "warning",
+                text: "Anda sudah melamar pekerjaan ini."
+            };
 
-return res.redirect("/seeker/dashboard");
+            return res.redirect("/seeker/dashboard");
         }
 
         const insertSql = `
@@ -82,12 +120,12 @@ return res.redirect("/seeker/dashboard");
                 return res.send("Gagal melamar");
             }
 
-           req.session.message = {
-    type: "success",
-    text: "Lamaran berhasil dikirim."
-};
+            req.session.message = {
+                type: "success",
+                text: "Lamaran berhasil dikirim."
+            };
 
-res.redirect("/seeker/dashboard");
+            res.redirect("/seeker/dashboard");
         });
     });
 });
@@ -117,7 +155,7 @@ router.post("/portfolio", isSeeker, upload.single("cv"), (req, res) => {
             const finalCv = cv || oldCv;
 
             const sql = `
-                UPDATE portfolios 
+                UPDATE portfolios
                 SET skill = ?, education = ?, experience = ?, cv = ?
                 WHERE user_id = ?
             `;

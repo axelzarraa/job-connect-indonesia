@@ -1,55 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Data Perusahaan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Company profile - Job Connect</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="navbar-custom">
-        <a href="/hrd/dashboard">Dashboard</a>
-        <a href="/hrd/jobs">Kelola Lowongan</a>
-        <a href="/logout">Logout</a>
+        <a href="/hrd/dashboard">
+            <span class="lp-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+            </span>
+            Job Connect
+        </a>
+        <a href="/hrd/jobs">Jobs</a>
+        <a href="/hrd/applications">Applicants</a>
+        <a href="/logout">Log out</a>
+        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
     </div>
 
-    <div class="container-box" style="max-width: 700px;">
-        <h1>Data Perusahaan</h1>
-        <p>Lengkapi profil perusahaan sebelum membuat lowongan.</p>
+    <div class="container-box" style="max-width: 760px;">
+        <div class="page-header">
+            <h1>Company profile</h1>
+            <p>Fill this in before posting jobs. Candidates check it before they apply.</p>
+        </div>
 
-        <form action="/hrd/company" method="POST">
+        <form action="/hrd/company" method="POST" class="form-card">
 
-            <label>Nama Perusahaan</label>
-            <input
-                type="text"
-                name="company_name"
-                class="form-control-custom"
-                required>
+            <div class="au-field">
+                <label for="company_name">Company name</label>
+                <input
+                    type="text"
+                    id="company_name"
+                    name="company_name"
+                    class="form-control-custom"
+                    placeholder="e.g. PT Maju Bersama"
+                    required>
+            </div>
 
-            <br>
+            <div class="au-field">
+                <label for="address">Address</label>
+                <textarea
+                    id="address"
+                    name="address"
+                    rows="4"
+                    class="form-control-custom"
+                    placeholder="Where's your office?"
+                    required></textarea>
+            </div>
 
-            <label>Alamat</label>
-            <textarea
-                name="address"
-                rows="4"
-                class="form-control-custom"
-                required></textarea>
+            <div class="au-field">
+                <label for="description">About the company</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="5"
+                    class="form-control-custom"
+                    placeholder="What does your company do, and what's it like to work there?"
+                    required></textarea>
+            </div>
 
-            <br>
-
-            <label>Deskripsi Perusahaan</label>
-            <textarea
-                name="description"
-                rows="5"
-                class="form-control-custom"
-                required></textarea>
-
-            <br><br>
-
-            <button type="submit" class="btn-blue">
-                Simpan Data Perusahaan
-            </button>
+            <div class="form-actions">
+                <button type="submit" class="btn-blue">Save profile</button>
+                <a href="/hrd/dashboard" class="btn-ghost">Cancel</a>
+            </div>
 
         </form>
     </div>
+
+    <script src="/js/main.js"></script>
 </body>
 </html>

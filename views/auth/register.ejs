@@ -1,69 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Register - Job Connect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign up - Job Connect</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="auth-page">
-        <div class="auth-card">
-            <h1>Buat Akun 🚀</h1>
-            <p>Daftar sebagai HRD atau Job Seeker.</p>
+    <div class="au-page">
 
-            <form action="/register" method="POST">
-                <label>Nama</label>
-                <input
-                    type="text"
-                    name="name"
-                    class="form-control-custom"
-                    placeholder="Nama lengkap"
-                    required>
+        <aside class="au-side">
+            <a href="/" class="au-brand">
+                <span class="lp-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+                </span>
+                Job Connect
+            </a>
 
-                <br>
+            <div>
+                <h2>Your next move starts here</h2>
+                <p>Join as a job seeker to apply fast, or as HR to find your next hire.</p>
+                <div class="au-badges">
+                    <span>Job Seeker</span>
+                    <span>HR</span>
+                </div>
+            </div>
 
-                <label>Email</label>
-                <input
-                    type="email"
-                    name="email"
-                    class="form-control-custom"
-                    placeholder="Email aktif"
-                    required>
+            <small>Job Connect Indonesia</small>
+        </aside>
 
-                <br>
+        <main class="au-main">
+            <div class="au-card">
+                <h1>Create your account</h1>
+                <p>Takes less than a minute.</p>
 
-                <label>Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    class="form-control-custom"
-                    placeholder="Minimal 6 karakter"
-                    required>
+                <form action="/register" method="POST">
+                    <div class="au-field">
+                        <label for="name">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="form-control-custom"
+                            placeholder="Your full name"
+                            required>
+                    </div>
 
-                <br>
+                    <div class="au-field">
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control-custom"
+                            placeholder="you@email.com"
+                            required>
+                    </div>
 
-                <label>Role</label>
-                <select name="role" class="form-control-custom" required>
-                    <option value="jobseeker">Job Seeker</option>
-                    <option value="hrd">HRD</option>
-                </select>
+                    <div class="au-field">
+                        <label for="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control-custom"
+                            placeholder="At least 6 characters"
+                            required>
+                    </div>
 
-                <br><br>
+                    <div class="au-field">
+                        <label for="role">I'm signing up as</label>
+                        <select id="role" name="role" class="form-control-custom" required>
+                            <option value="jobseeker">Job Seeker</option>
+                            <option value="hrd">HR</option>
+                        </select>
+                    </div>
 
-                <button type="submit" class="btn-blue" style="width: 100%;">
-                    Register
-                </button>
-            </form>
+                    <button type="submit" class="btn-blue au-submit">
+                        Sign up
+                    </button>
+                </form>
 
-            <p class="auth-link">
-                Sudah punya akun?
-                <a href="/login">Login sekarang</a>
-            </p>
+                <p class="au-foot">
+                    Already have an account?
+                    <a href="/login">Log in</a>
+                </p>
 
-            <p class="auth-link">
-                <a href="/">Kembali ke Home</a>
-            </p>
-        </div>
+                <p class="au-foot">
+                    <a href="/">Back to home</a>
+                </p>
+            </div>
+        </main>
+
     </div>
 </body>
 </html>

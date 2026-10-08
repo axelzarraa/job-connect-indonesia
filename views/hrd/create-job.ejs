@@ -1,69 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Tambah Lowongan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Post a job - Job Connect</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="navbar-custom">
-        <a href="/hrd/dashboard">💼 Job Connect</a>
-        <a href="/hrd/jobs">Kelola Lowongan</a>
-        <a href="/hrd/applications">Pelamar</a>
-        <a href="/logout">Logout</a>
+        <a href="/hrd/dashboard">
+            <span class="lp-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+            </span>
+            Job Connect
+        </a>
+        <a href="/hrd/jobs">Jobs</a>
+        <a href="/hrd/applications">Applicants</a>
+        <a href="/logout">Log out</a>
+        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
     </div>
 
     <div class="container-box" style="max-width: 760px;">
         <div class="page-header">
-            <h1>Tambah Lowongan</h1>
-            <p>Lengkapi informasi lowongan agar kandidat memahami posisi yang dibuka.</p>
+            <h1>Post a job</h1>
+            <p>Give candidates a clear picture of the role so the right people apply.</p>
         </div>
 
-        <form action="/hrd/jobs/create" method="POST">
+        <form action="/hrd/jobs/create" method="POST" class="form-card">
 
-            <label>Judul Lowongan</label>
-            <input
-                type="text"
-                name="title"
-                class="form-control-custom"
-                placeholder="Contoh: Frontend Developer"
-                required>
+            <div class="au-field">
+                <label for="title">Job title</label>
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    class="form-control-custom"
+                    placeholder="e.g. Frontend Developer"
+                    required>
+            </div>
 
-            <br>
+            <div class="au-field">
+                <label for="description">What will they do?</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="5"
+                    class="form-control-custom"
+                    placeholder="Describe the day-to-day and what the role is responsible for..."
+                    required></textarea>
+            </div>
 
-            <label>Deskripsi Pekerjaan</label>
-            <textarea
-                name="description"
-                rows="5"
-                class="form-control-custom"
-                placeholder="Jelaskan tanggung jawab pekerjaan..."
-                required></textarea>
+            <div class="au-field">
+                <label for="requirement">What do you need from them?</label>
+                <textarea
+                    id="requirement"
+                    name="requirement"
+                    rows="5"
+                    class="form-control-custom"
+                    placeholder="e.g. HTML, CSS, JavaScript, React..."
+                    required></textarea>
+            </div>
 
-            <br>
+            <div class="au-field">
+                <label for="deadline">Application deadline</label>
+                <input
+                    type="date"
+                    id="deadline"
+                    name="deadline"
+                    class="form-control-custom"
+                    required>
+            </div>
 
-            <label>Requirement / Syarat</label>
-            <textarea
-                name="requirement"
-                rows="5"
-                class="form-control-custom"
-                placeholder="Contoh: HTML, CSS, JavaScript, React..."
-                required></textarea>
-
-            <br>
-
-            <label>Deadline Lamaran</label>
-            <input
-                type="date"
-                name="deadline"
-                class="form-control-custom"
-                required>
-
-            <br><br>
-
-            <button type="submit" class="btn-blue">Simpan Lowongan</button>
-            <a href="/hrd/jobs" class="btn-red">Batal</a>
+            <div class="form-actions">
+                <button type="submit" class="btn-blue">Publish job</button>
+                <a href="/hrd/jobs" class="btn-ghost">Cancel</a>
+            </div>
 
         </form>
     </div>
+
+    <script src="/js/main.js"></script>
 </body>
 </html>

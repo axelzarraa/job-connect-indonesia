@@ -1,131 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Job Connect Indonesia</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-    <div class="landing-navbar">
-        <div class="brand">
-    💼 Job Connect
+    <header class="lp-nav">
+        <a href="/" class="lp-brand">
+            <span class="lp-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+            </span>
+            Job Connect
+        </a>
+        <nav class="lp-nav-links">
+            <a href="/login">Log in</a>
+            <a href="/register" class="btn-green">Sign up</a>
+        </nav>
+    </header>
+
+    <main class="lp-wrap">
+
+        <section class="lp-hero">
+            <div class="lp-hero-text">
+                <span class="lp-badge lp-rise" style="--d:0ms">For job seekers and HR</span>
+                <h1>
+                    <span class="w" style="--i:0">Land</span>
+                    <span class="w" style="--i:1">the</span>
+                    <span class="w" style="--i:2">job</span>
+                    <span class="w" style="--i:3">you</span>
+                    <span class="w lp-hl" style="--i:4">actually</span>
+                    <span class="w" style="--i:5">want</span>
+                </h1>
+                <p class="lp-rise" style="--d:700ms">
+                    Skip the messy hiring process. Apply in a few clicks,
+                    track every update, and let HR find you.
+                </p>
+
+                <div class="lp-search lp-rise" style="--d:850ms">
+                    <input type="text" aria-label="Search roles" placeholder="Search a role, e.g. Frontend Developer">
+                    <button class="btn-blue">Search</button>
+                </div>
+
+                <div class="lp-chips lp-rise" style="--d:1000ms">
+                    <a href="/login">Frontend Developer</a>
+                    <a href="/login">Backend Developer</a>
+                    <a href="/login">UI/UX Designer</a>
+                </div>
+            </div>
+
+            <div class="lp-mock" aria-hidden="true">
+    <div class="lp-mock-card">
+        <div class="lp-mock-top">
+            <span class="lp-mock-avatar av-indigo">N</span>
+            <div>
+                <strong>Frontend Developer</strong>
+                <span class="lp-mock-meta">Nexa Labs · Remote</span>
+            </div>
+        </div>
+        <div class="lp-mock-foot">
+            <span class="badge badge-blue">Review</span>
+            <span class="lp-mock-tag">Full-time</span>
+            <span class="lp-mock-time">2h ago</span>
+        </div>
+    </div>
+    <div class="lp-mock-card">
+        <div class="lp-mock-top">
+            <span class="lp-mock-avatar av-sky">P</span>
+            <div>
+                <strong>Backend Developer</strong>
+                <span class="lp-mock-meta">Pixelwave · Jakarta</span>
+            </div>
+        </div>
+        <div class="lp-mock-foot">
+            <span class="badge badge-green">Accepted</span>
+            <span class="lp-mock-tag">Hybrid</span>
+            <span class="lp-mock-time">5h ago</span>
+        </div>
+    </div>
+    <div class="lp-mock-card">
+        <div class="lp-mock-top">
+            <span class="lp-mock-avatar av-peach">B</span>
+            <div>
+                <strong>UI/UX Designer</strong>
+                <span class="lp-mock-meta">Brightly · Malang</span>
+            </div>
+        </div>
+        <div class="lp-mock-foot">
+            <span class="badge badge-blue">Review</span>
+            <span class="lp-mock-tag">Internship</span>
+            <span class="lp-mock-time">1d ago</span>
+        </div>
+    </div>
 </div>
-        <div>
-            <a href="/login">Login</a>
-            <a href="/register" class="nav-register">Register</a>
-        </div>
-    </div>
+        </section>
 
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Temukan Karier Impianmu</h1>
-            <p>
-                Platform rekrutmen modern yang menghubungkan perusahaan terbaik
-                dengan talenta terbaik Indonesia.
-            </p>
-
-            <div class="search-demo">
-
-    <input
-        type="text"
-        placeholder="Cari posisi, misalnya Frontend Developer">
-
-    <button class="btn-blue">
-        Cari Lowongan
-    </button>
-
-</div>
-            <div class="hero-buttons">
-                <a href="/login" class="btn-blue">Mulai Sekarang</a>
-                <a href="/register" class="btn-green">Buat Akun</a>
-            </div>
-        </div>
-    </div>
-
-    <section class="stats-section">
-        <div class="stat-box">
-            <h2>100+</h2>
-            <p>Lowongan Tersedia</p>
-        </div>
-
-        <div class="stat-box">
-            <h2>50+</h2>
-            <p>Perusahaan Terdaftar</p>
-        </div>
-
-        <div class="stat-box">
-            <h2>500+</h2>
-            <p>Job Seeker Aktif</p>
-        </div>
-    </section>
-
-    <section class="features-section">
-        <h2>Mengapa Memilih Job Connect?</h2>
-
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>🔍 Cari Lowongan</h3>
-                <p>Temukan berbagai lowongan pekerjaan dari perusahaan terpercaya.</p>
+        <section class="lp-bento">
+            <div class="lp-tile lp-wide" data-reveal>
+                <span class="lp-ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                </span>
+                <h3>Find jobs</h3>
+                <p>Browse openings in one place. No endless scrolling, no confusing filters.</p>
+                <div class="lp-chips lp-chips-bottom">
+                    <span>Frontend</span><span>Backend</span><span>Data</span><span>Marketing</span>
+                </div>
             </div>
 
-            <div class="feature-card">
-                <h3>📄 Upload CV</h3>
-                <p>Simpan portfolio dan CV untuk meningkatkan peluang diterima.</p>
+            <div class="lp-tile" data-reveal>
+                <span class="lp-ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+                </span>
+                <h3>Upload your CV</h3>
+                <p>Drop your CV and portfolio once, then apply anywhere in one click.</p>
             </div>
 
-            <div class="feature-card">
-                <h3>🏢 Kelola Kandidat</h3>
-                <p>HRD dapat mengelola pelamar dengan mudah dan efisien.</p>
+            <div class="lp-tile" data-reveal>
+                <span class="lp-ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg>
+                </span>
+                <h3>Manage candidates</h3>
+                <p>HR can review applicants and update their status without the chaos.</p>
             </div>
+
+            <div class="lp-tile lp-wide lp-dark" data-reveal>
+                <h3>Track your applications</h3>
+                <p>No more wondering what's going on. See where every application stands.</p>
+                <div class="lp-status">
+                    <span>Review</span>
+                    <span class="on">Accepted</span>
+                    <span>Rejected</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="lp-cta" data-reveal>
+            <h2>Ready to level up your career?</h2>
+            <div>
+                <a href="/register" class="btn-blue">Create account</a>
+                <a href="/login" class="btn-green">Log in</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="lp-footer">
+        <div class="lp-wrap lp-footer-row">
+            <span>Job Connect Indonesia</span>
+            <span>Built by Axel Zarra</span>
         </div>
-    </section>
+    </footer>
 
-<section class="tech-section">
-
-    <h2>Dibangun Menggunakan</h2>
-
-    <div class="tech-grid">
-
-        <span>Node.js</span>
-        <span>Express.js</span>
-        <span>MySQL</span>
-        <span>EJS</span>
-        <span>CSS3</span>
-
-    </div>
-
-</section>
-
-<section class="tech-section">
-
-    <h2>Kategori Populer</h2>
-
-    <div class="tech-grid">
-
-        <span>Frontend Developer</span>
-        <span>Backend Developer</span>
-        <span>UI/UX Designer</span>
-        <span>Data Analyst</span>
-        <span>Digital Marketing</span>
-        <span>Project Manager</span>
-
-    </div>
-
-</section>
-<footer class="footer">
-
-    <h3>Job Connect Indonesia</h3>
-
-    <p>
-        Platform rekrutmen modern yang menghubungkan talenta dan perusahaan.
-    </p>
-
-    <p>
-        Developed by Bes • Node.js • Express • MySQL
-    </p>
-
-</footer>
+    <script src="/js/home.js" defer></script>
 
 </body>
 </html>

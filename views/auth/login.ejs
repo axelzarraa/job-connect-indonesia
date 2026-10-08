@@ -1,51 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login - Job Connect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in - Job Connect</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="auth-page">
-        <div class="auth-card">
-            <h1>Welcome Back 👋</h1>
-            <p>Masuk untuk melanjutkan ke Job Connect Indonesia.</p>
+    <div class="au-page">
 
-            <form action="/login" method="POST">
-                <label>Email</label>
-                <input
-                    type="email"
-                    name="email"
-                    class="form-control-custom"
-                    placeholder="Masukkan email"
-                    required>
+        <aside class="au-side">
+            <a href="/" class="au-brand">
+                <span class="lp-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+                </span>
+                Job Connect
+            </a>
 
-                <br>
+            <div>
+                <h2>Good to see you again</h2>
+                <p>Pick up where you left off. Your applications and updates are waiting.</p>
+                <div class="au-badges">
+                    <span>Review</span>
+                    <span>Accepted</span>
+                    <span>Rejected</span>
+                </div>
+            </div>
 
-                <label>Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    class="form-control-custom"
-                    placeholder="Masukkan password"
-                    required>
+            <small>Job Connect Indonesia</small>
+        </aside>
 
-                <br><br>
+        <main class="au-main">
+            <div class="au-card">
+                <h1>Welcome back</h1>
+                <p>Log in to keep going.</p>
 
-                <button type="submit" class="btn-blue" style="width: 100%;">
-                    Login
-                </button>
-            </form>
+                <form action="/login" method="POST">
+                    <div class="au-field">
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control-custom"
+                            placeholder="you@email.com"
+                            required>
+                    </div>
 
-            <p class="auth-link">
-                Belum punya akun?
-                <a href="/register">Register sekarang</a>
-            </p>
+                    <div class="au-field">
+                        <label for="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control-custom"
+                            placeholder="Your password"
+                            required>
+                    </div>
 
-            <p class="auth-link">
-                <a href="/">Kembali ke Home</a>
-            </p>
-        </div>
+                    <button type="submit" class="btn-blue au-submit">
+                        Log in
+                    </button>
+                </form>
+
+                <p class="au-foot">
+                    New here?
+                    <a href="/register">Create an account</a>
+                </p>
+
+                <p class="au-foot">
+                    <a href="/">Back to home</a>
+                </p>
+            </div>
+        </main>
+
     </div>
 </body>
 </html>

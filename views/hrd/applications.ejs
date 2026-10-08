@@ -1,66 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Data Pelamar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Applicants - Job Connect</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="navbar-custom">
-        <a href="/hrd/dashboard">💼 Job Connect</a>
-        <a href="/hrd/jobs">Kelola Lowongan</a>
-        <a href="/hrd/applications">Pelamar</a>
-        <a href="/logout">Logout</a>
+        <a href="/hrd/dashboard">
+            <span class="lp-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+            </span>
+            Job Connect
+        </a>
+        <a href="/hrd/jobs">Jobs</a>
+        <a href="/hrd/applications">Applicants</a>
+        <a href="/logout">Log out</a>
+        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
     </div>
 
     <div class="container-box">
         <div class="page-header">
-            <h1>Data Pelamar</h1>
-            <p>Kelola kandidat yang sudah melamar ke lowongan perusahaan.</p>
+            <h1>Applicants</h1>
+            <p>Everyone who applied to your openings, all in one place.</p>
         </div>
 
         <% if (applications.length === 0) { %>
             <div class="alert-empty">
-    <h3>👥 Belum Ada Pelamar</h3>
-    <p>Pelamar akan muncul setelah job seeker mengirim lamaran.</p>
-</div>
+                <span class="lp-ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg>
+                </span>
+                <h3>No applicants yet</h3>
+                <p>Applicants will show up here once job seekers apply.</p>
+            </div>
         <% } else { %>
-            <table>
-                <tr>
-                    <th>Nama Pelamar</th>
-                    <th>Email</th>
-                    <th>Lowongan</th>
-                    <th>Status</th>
-                    <th>Tanggal Lamar</th>
-                    <th>Aksi</th>
-                </tr>
-
-                <% applications.forEach(app => { %>
+            <div class="table-wrap">
+                <table>
                     <tr>
-                        <td><strong><%= app.name %></strong></td>
-                        <td><%= app.email %></td>
-                        <td><%= app.title %></td>
-                        <td>
-                            <% if (app.status === "pending") { %>
-                                <span class="badge badge-yellow">Pending</span>
-                            <% } else if (app.status === "review") { %>
-                                <span class="badge badge-blue">Review</span>
-                            <% } else if (app.status === "accepted") { %>
-                                <span class="badge badge-green">Accepted</span>
-                            <% } else { %>
-                                <span class="badge badge-red">Rejected</span>
-                            <% } %>
-                        </td>
-                        <td><%= new Date(app.created_at).toLocaleDateString('id-ID') %></td>
-                        <td>
-                            <a href="/hrd/applications/status/<%= app.id %>/review" class="btn-small-blue">Review</a>
-                            <a href="/hrd/applications/status/<%= app.id %>/accepted" class="btn-small-green">Accept</a>
-                            <a href="/hrd/applications/status/<%= app.id %>/rejected" class="btn-small-red" onclick="return confirm('Yakin ingin menolak pelamar ini?')">Reject</a>
-                        </td>
+                        <th>Applicant</th>
+                        <th>Email</th>
+                        <th>Job</th>
+                        <th>Status</th>
+                        <th>Applied on</th>
+                        <th>Actions</th>
                     </tr>
-                <% }) %>
-            </table>
+
+                    <% applications.forEach(app => { %>
+                        <tr>
+                            <td><strong><%= app.name %></strong></td>
+                            <td><%= app.email %></td>
+                            <td><%= app.title %></td>
+                            <td>
+                                <% if (app.status === "pending") { %>
+                                    <span class="badge badge-yellow">Pending</span>
+                                <% } else if (app.status === "review") { %>
+                                    <span class="badge badge-blue">Review</span>
+                                <% } else if (app.status === "accepted") { %>
+                                    <span class="badge badge-green">Accepted</span>
+                                <% } else { %>
+                                    <span class="badge badge-red">Rejected</span>
+                                <% } %>
+                            </td>
+                            <td><%= new Date(app.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) %></td>
+                            <td>
+                                <div class="row-actions">
+                                    <a href="/hrd/applications/status/<%= app.id %>/review" class="btn-small-blue">Review</a>
+                                    <a href="/hrd/applications/status/<%= app.id %>/accepted" class="btn-small-green">Accept</a>
+                                    <a href="/hrd/applications/status/<%= app.id %>/rejected" class="btn-small-red" onclick="return confirm('Reject this applicant?')">Reject</a>
+                                </div>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </table>
+            </div>
         <% } %>
     </div>
+
+    <script src="/js/main.js"></script>
 </body>
 </html>
